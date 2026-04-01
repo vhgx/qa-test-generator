@@ -21,49 +21,46 @@ A ferramenta executa um pipeline que injeta continuamente o resultado da etapa a
 
 ### 2. Instalação
 
-\`\`\`bash
-# Acesse a pasta do projeto
-cd qa-test-generator-agent
-
+```bash
 # Instale as dependências
 npm install
-\`\`\`
+```
 
 ### 3. Configuração do LLM (Padrão: LM Studio Local)
 
-Por padrão, o projeto aponta para \`http://localhost:1234/v1\`, que é a porta padrão do LM Studio rodando localmente no modo "Local Server".
+Por padrão, o projeto aponta para `http://localhost:1234/v1`, que é a porta padrão do LM Studio rodando localmente no modo "Local Server".
 
-Basta abrir o LM Studio, carregar um modelo de código ou de linguagem de sua preferência (recomendações: \`Qwen2.5-Coder-7B\`, \`Llama-3-8B-Instruct\`), e clicar em **"Start Server"**.
+Basta abrir o LM Studio, carregar um modelo de código ou de linguagem de sua preferência (recomendações: `Qwen2.5-Coder-7B`, `Llama-3-8B-Instruct`), e clicar em **"Start Server"**.
 
-Se você quiser alterar a URL ou usar a OpenAI, crie/edite o arquivo \`.env\` na raiz:
+Se você quiser alterar a URL ou usar a OpenAI, crie/edite o arquivo `.env` na raiz:
 
-\`\`\`env
+```env
 OPENAI_BASE_URL=http://localhost:1234/v1
 OPENAI_API_KEY=sua-chave-se-necessario
 OPENAI_MODEL=nome-do-seu-modelo
-\`\`\`
+```
 
 ### 4. Executando a Aplicação
 
 Inicie a aplicação executando:
 
-\`\`\`bash
+```bash
 node index.js
-\`\`\`
+```
 
 A aplicação fará uma pergunta no terminal:
 > **Descreva o requisito funcional (ex: "Usuário deve conseguir recuperar senha por SMS"):**
 
 Digite o seu requisito, pressione Enter e acompanhe a geração em 5 etapas no terminal!
 
-Os arquivos brutos (\`.md\` e \`.spec.js\`) serão gerados automaticamente dentro da pasta \`output/\`.
+Os arquivos brutos (`.md` e `.spec.js`) serão gerados automaticamente dentro da pasta `output/`.
 
 ---
 
 ## 📁 Estrutura do Projeto
 
-\`\`\`text
-qa-test-generator-agent/
+```text
+.
 │
 ├── src/
 │   ├── llmClient.js    # Cliente do LLM
@@ -72,8 +69,10 @@ qa-test-generator-agent/
 │
 ├── output/             # Os artefatos gerados são salvos aqui
 │
-├── .env                # Variáveis de ambiente
+├── .env                # Variáveis de ambiente (ignorado pelo git)
+├── .gitignore          # Arquivos ignorados pelo git
 ├── index.js            # Interface CLI principal
 ├── package.json        
 └── README.md
-\`\`\`
+```
+
